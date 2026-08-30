@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 
 const TO_EMAIL = "info@sohum.cc";
-const FROM_EMAIL = "SoHum Website <noreply@sohum.cc>";
+const FROM_EMAIL = "SoHum Website <noreply@send.sohum.cc>";
 
 // Per-IP rate limit. In-memory, so it resets on cold start and is per-instance —
 // enough to blunt bursts, not a hard guarantee.
