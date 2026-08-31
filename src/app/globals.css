@@ -7,6 +7,10 @@
   --copper: #d97b3f;
   --copper-bright: #f0a15e;
   --line: #2c2822;
+  /* Status palette — reserved for pass/fail state, never decorative. */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-critical: #d03b3b;
 }
 
 @theme inline {
@@ -16,6 +20,9 @@
   --color-copper: var(--copper);
   --color-copper-bright: var(--copper-bright);
   --color-line: var(--line);
+  --color-status-good: var(--status-good);
+  --color-status-warning: var(--status-warning);
+  --color-status-critical: var(--status-critical);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
 }

@@ -10,6 +10,15 @@ export interface ProjectConfig {
 }
 
 export const VERCEL_TEAM_ID = "team_dZVFQQ4xzX6LvNm18nhjW824";
+const VERCEL_TEAM_SLUG = "siddhartha-sharmas-projects-b26f94ec";
+
+export function vercelDashboardUrl(vercelProjectName: string): string {
+  return `https://vercel.com/${VERCEL_TEAM_SLUG}/${vercelProjectName}`;
+}
+
+export function supabaseDashboardUrl(ref: string): string {
+  return `https://supabase.com/dashboard/project/${ref}`;
+}
 
 export const PROJECTS: ProjectConfig[] = [
   {
