@@ -18,6 +18,32 @@ export default function ProjectCard({
     <div className="border border-line p-6 flex flex-col gap-4">
       <h2 className="font-display text-2xl">{project.name}</h2>
 
+      <div>
+        <p className="text-paper-dim tracking-wide uppercase text-xs mb-1">Stack</p>
+        {project.vercelProjectName && (
+          <div className="flex items-baseline justify-between gap-4 py-1.5 text-sm">
+            <span className="text-paper-dim">Frontend</span>
+            <span className="font-mono text-right">{project.vercelProjectName}</span>
+          </div>
+        )}
+        {project.render && (
+          <div className="flex items-baseline justify-between gap-4 py-1.5 text-sm">
+            <span className="text-paper-dim">Backend</span>
+            <span className="font-mono text-right">{project.render.serviceName}</span>
+          </div>
+        )}
+        {project.db && (
+          <div className="flex items-baseline justify-between gap-4 py-1.5 text-sm">
+            <span className="text-paper-dim">Database</span>
+            <span className="font-mono text-right">
+              {project.db.kind === "mongo"
+                ? `${project.db.dbName} (${project.db.clusterName})`
+                : `${project.db.projectName} (Supabase)`}
+            </span>
+          </div>
+        )}
+      </div>
+
       {project.vercelProjectId && (
         <div>
           <p className="text-paper-dim tracking-wide uppercase text-xs mb-1">Deploy</p>
