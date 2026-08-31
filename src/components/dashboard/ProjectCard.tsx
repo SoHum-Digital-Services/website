@@ -154,12 +154,27 @@ export default function ProjectCard({
                     <StatusDot status="good" label="ok" />
                   ) : (
                     <StatusDot
-                      status={data.status === "ACTIVE_HEALTHY" ? "good" : "warning"}
+                      status={
+                        data.status === "ACTIVE_HEALTHY"
+                          ? "good"
+                          : data.status === "RESTRICTED"
+                            ? "critical"
+                            : "warning"
+                      }
                       label={data.status}
                     />
                   )
                 }
               />
+              {/* A restriction means the project is serving 402s — say why,
+                  since "RESTRICTED" alone doesn't tell you what to go fix. */}
+              {metrics.db?.status === "ok" &&
+                !isMongoInfo(metrics.db.data) &&
+                metrics.db.data.restriction && (
+                  <p className="pt-1 text-right font-mono text-xs text-status-critical">
+                    {metrics.db.data.restriction}
+                  </p>
+                )}
               {project.db.kind === "mongo" &&
                 metrics.db?.status === "ok" &&
                 isMongoInfo(metrics.db.data) && (

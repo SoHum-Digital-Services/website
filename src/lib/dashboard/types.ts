@@ -18,6 +18,8 @@ export interface RenderInfo {
 
 export interface SupabaseInfo {
   status: string;
+  /** Violation reported by the data plane when status is RESTRICTED. */
+  restriction?: string;
 }
 
 export interface MongoInfo {
