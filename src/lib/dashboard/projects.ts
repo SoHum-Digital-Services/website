@@ -1,6 +1,13 @@
 export interface ProjectConfig {
   key: string;
   name: string;
+  /**
+   * Identity colour for this project. Assigned in fixed order and never
+   * cycled or reused, so a project keeps its colour as the list grows.
+   * Deliberately distinct from the status palette — state is always carried
+   * by a dot + label, never by these.
+   */
+  pigment: string;
   vercelProjectId?: string;
   vercelProjectName?: string;
   render?: { url: string; healthPath: string; serviceName: string };
@@ -23,6 +30,7 @@ export function supabaseDashboardUrl(ref: string): string {
 export const PROJECTS: ProjectConfig[] = [
   {
     key: "spjrsd",
+    pigment: "#ff5c3d",
     name: "SPJRSD",
     vercelProjectId: "prj_X5Pq0SLV1Ndq4VjuDKh6nXJWEtrB",
     vercelProjectName: "spjrs-devastanam-mirror",
@@ -35,12 +43,14 @@ export const PROJECTS: ProjectConfig[] = [
   },
   {
     key: "sohum-website",
+    pigment: "#f0a202",
     name: "SoHum Website",
     vercelProjectId: "prj_aIxpRGm2sBJe9A9n7M36zUeziUAZ",
     vercelProjectName: "sohum-website",
   },
   {
     key: "gativani",
+    pigment: "#19b39b",
     name: "Gativani",
     vercelProjectId: "prj_OVe7Rumqf36AntBAxHZSrUl6X6vB",
     vercelProjectName: "gativani",
@@ -48,6 +58,7 @@ export const PROJECTS: ProjectConfig[] = [
   },
   {
     key: "chanttracker",
+    pigment: "#f0518f",
     name: "ChantTracker",
     vercelProjectId: "prj_Nl9HglfZYq42S4g8B2lhlJiD6138",
     vercelProjectName: "chanttracker",
@@ -55,6 +66,7 @@ export const PROJECTS: ProjectConfig[] = [
   },
   {
     key: "peetham_web",
+    pigment: "#7b8cff",
     name: "Peetham Web",
     vercelProjectId: "prj_oiRer3efE9toVlpqW91Xq4aZAikK",
     vercelProjectName: "peetham_web",

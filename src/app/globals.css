@@ -1,46 +1,169 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Pigments — fixed across surfaces. Named for the material they
+   come from, because that's what they are: sindoor, haldi, indigo.
+   ============================================================ */
 :root {
-  --ink: #12100d;
-  --paper: #f4ecdd;
-  --paper-dim: #cabfa9;
-  --copper: #d97b3f;
-  --copper-bright: #f0a15e;
-  --line: #2c2822;
-  /* Status palette — reserved for pass/fail state, never decorative. */
-  --status-good: #0ca30c;
-  --status-warning: #fab219;
-  --status-critical: #d03b3b;
+  --sindoor: #d93a1e; /* vermillion / kumkum — the primary accent */
+  --sindoor-deep: #a3260f;
+  --haldi: #f0a202; /* turmeric / marigold */
+  --haldi-deep: #c07d00;
+  --neel: #26358c; /* indigo dye */
+  --neel-deep: #161f5c;
+  --mor: #0e7b6b; /* peacock */
+  --gulabi: #cf2a68; /* rose */
+  --swarna: #bd8a2c; /* gold leaf */
+
+  /* Status — reserved for pass/fail state, never decorative,
+     never reused as a project identity colour. */
+  --status-good: #0f8f3f;
+  --status-warning: #e08a00;
+  --status-critical: #cc2b2b;
+
+  /* Surfaces — light (the public site) */
+  --bg: #fbf3e4;
+  --bg-2: #f4e7cf;
+  --bg-3: #ffffff;
+  --fg: #1c1410;
+  --fg-2: #6b5847;
+  --rule: #e0cba6;
+}
+
+/* Surfaces — dark (the ops dashboard). Indigo-black, not neutral
+   black, so it belongs to the same palette. */
+.theme-dark {
+  --bg: #100d1a;
+  --bg-2: #181430;
+  --bg-3: #1f1a3c;
+  --fg: #f7eeda;
+  --fg-2: #a99cc4;
+  --rule: #2b2450;
+
+  --status-good: #35c46a;
+  --status-warning: #f5b52e;
+  --status-critical: #f0554f;
 }
 
 @theme inline {
-  --color-ink: var(--ink);
-  --color-paper: var(--paper);
-  --color-paper-dim: var(--paper-dim);
-  --color-copper: var(--copper);
-  --color-copper-bright: var(--copper-bright);
-  --color-line: var(--line);
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-rule: var(--rule);
+
+  --color-sindoor: var(--sindoor);
+  --color-sindoor-deep: var(--sindoor-deep);
+  --color-haldi: var(--haldi);
+  --color-haldi-deep: var(--haldi-deep);
+  --color-neel: var(--neel);
+  --color-neel-deep: var(--neel-deep);
+  --color-mor: var(--mor);
+  --color-gulabi: var(--gulabi);
+  --color-swarna: var(--swarna);
+
   --color-status-good: var(--status-good);
   --color-status-warning: var(--status-warning);
   --color-status-critical: var(--status-critical);
+
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
 body {
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-body), monospace;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 15% -10%, rgba(217, 123, 63, 0.16), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(217, 123, 63, 0.08), transparent);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchor targets clear the sticky header instead of hiding under it. */
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .font-display {
-  font-family: var(--font-display), serif;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
 }
 
 ::selection {
-  background: var(--copper);
-  color: var(--ink);
+  background: var(--sindoor);
+  color: #fbf3e4;
+}
+
+/* ============================================================
+   Paper grain — pigment on handmade paper, not flat vector fill.
+   ============================================================ */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.theme-dark .grain::after {
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+}
+
+/* ============================================================
+   Page-load reveal — one orchestrated entrance, staggered.
+   ============================================================ */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 70s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .spin-slow {
+    animation: none;
+  }
+}
+
+/* Hard offset shadow — letterpress/print feel, no soft blur. */
+.plate {
+  box-shadow: 6px 6px 0 0 var(--fg);
+}
+.plate-sm {
+  box-shadow: 4px 4px 0 0 var(--fg);
 }

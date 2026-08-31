@@ -5,9 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 type Status = "idle" | "sending" | "error";
 
-const inputClass =
-  "bg-transparent border-b border-line focus:border-copper outline-none py-2 text-paper placeholder:text-paper-dim/50 transition-colors disabled:opacity-50";
-
 export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -45,9 +42,11 @@ export default function LoginForm() {
   const sending = status === "sending";
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-6 max-w-sm">
-      <label className="flex flex-col gap-2 text-sm">
-        <span className="text-paper-dim tracking-wide uppercase text-xs">Password</span>
+    <form onSubmit={handleSubmit} className="grid gap-6">
+      <label className="flex flex-col gap-2">
+        <span className="font-mono text-[0.7rem] uppercase tracking-[0.22em] text-fg-2">
+          Password
+        </span>
         <input
           required
           type="password"
@@ -55,13 +54,13 @@ export default function LoginForm() {
           disabled={sending}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className={inputClass}
+          className="w-full border-b border-rule bg-transparent py-3 text-fg outline-none transition-colors placeholder:text-fg-2/40 focus:border-haldi disabled:opacity-50"
           placeholder="••••••••"
         />
       </label>
 
       {status === "error" && (
-        <p role="alert" className="text-sm text-copper-bright">
+        <p role="alert" className="text-sm text-status-critical">
           {error}
         </p>
       )}
@@ -69,10 +68,15 @@ export default function LoginForm() {
       <button
         type="submit"
         disabled={sending}
-        className="justify-self-start inline-flex items-center gap-3 bg-copper text-ink font-medium px-6 py-3 hover:bg-copper-bright transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="group inline-flex items-center justify-center gap-3 justify-self-start bg-haldi px-7 py-4 font-medium text-[#100d1a] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+        style={{ boxShadow: "5px 5px 0 0 var(--sindoor)" }}
       >
         {sending ? "Signing in…" : "Sign in"}
-        {!sending && <span aria-hidden>&rarr;</span>}
+        {!sending && (
+          <span aria-hidden className="transition-transform group-hover:translate-x-1">
+            &rarr;
+          </span>
+        )}
       </button>
     </form>
   );
