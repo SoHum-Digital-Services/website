@@ -19,10 +19,14 @@ export default async function DashboardPage() {
   });
 
   return (
-    <div className="theme-dark grain relative flex-1 overflow-hidden bg-bg text-fg">
-      <Yantra className="spin-slow pointer-events-none absolute -right-40 -top-40 w-[46rem] text-haldi/[0.07]" />
+    <div className="theme-dark grain-page relative flex-1 bg-bg text-fg">
+      {/* Clipped locally rather than on the page wrapper — a clip/composite
+          context spanning the full document height is what broke painting. */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <Yantra className="spin-slow absolute -right-40 -top-40 w-[46rem] text-haldi/[0.07]" />
+      </div>
 
-      <div className="relative">
+      <div className="relative z-10">
         {/* ── Bar ──────────────────────────────────────────── */}
         <header className="border-b border-rule">
           <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6 sm:px-10">

@@ -5,10 +5,10 @@ import Yantra from "@/components/Yantra";
 
 export default function LoginPage() {
   return (
-    <div className="theme-dark grain relative flex flex-1 items-center overflow-hidden bg-bg text-fg">
+    <div className="theme-dark grain-page relative flex flex-1 items-center overflow-hidden bg-bg text-fg">
       <Yantra className="spin-slow pointer-events-none absolute -right-32 top-1/2 w-[40rem] -translate-y-1/2 text-sindoor/10" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 py-24 sm:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 sm:px-10">
         <div className="max-w-sm">
           <Link href="/" className="flex items-baseline gap-2">
             <span className="font-display text-2xl leading-none">SoHum</span>

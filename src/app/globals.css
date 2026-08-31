@@ -110,19 +110,31 @@ section[id] {
 /* ============================================================
    Paper grain — pigment on handmade paper, not flat vector fill.
    ============================================================ */
-.grain::after {
+.grain::after,
+.grain-page::after {
   content: "";
-  position: absolute;
-  inset: 0;
   pointer-events: none;
-  opacity: 0.35;
-  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-.theme-dark .grain::after {
-  mix-blend-mode: overlay;
-  opacity: 0.22;
+/* Sectional grain — for short, self-contained bands. */
+.grain::after {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+/* Page-level grain — a viewport-sized fixed layer. Stretching a blended
+   layer over a full page height makes the compositor rasterise a texture
+   the size of the whole document, which can drop out entirely on long
+   pages; pinning it to the viewport keeps that layer small and cheap.
+   Plain opacity here rather than a blend mode, for the same reason. */
+.grain-page::after {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.05;
 }
 
 /* ============================================================
