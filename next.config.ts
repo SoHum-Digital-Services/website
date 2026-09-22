@@ -1,7 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: "/panchangam",
+        destination: "https://panchangam-eight.vercel.app/panchangam",
+      },
+      {
+        source: "/panchangam/:path*",
+        destination: "https://panchangam-eight.vercel.app/panchangam/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
