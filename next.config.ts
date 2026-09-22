@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         source: "/panchangam/:path*",
         destination: "https://panchangam-eight.vercel.app/panchangam/:path*",
       },
+      {
+        source: "/static/:path*",
+        destination: "https://panchangam-eight.vercel.app/static/:path*",
+      },
     ];
   },
 };
