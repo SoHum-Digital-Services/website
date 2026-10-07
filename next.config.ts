@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
         source: "/static/:path*",
         destination: "https://panchangam-eight.vercel.app/static/:path*",
       },
+      {
+        source: "/v1/:path*",
+        destination: "https://panchangam-eight.vercel.app/v1/:path*",
+      },
+      {
+        source: "/openapi.json",
+        destination: "https://panchangam-eight.vercel.app/openapi.json",
+      },
     ];
   },
 };
