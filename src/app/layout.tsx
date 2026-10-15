@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Rozha_One, Karla, IBM_Plex_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Latin + Devanagari display face drawn from Indian sign painting — carries the
@@ -36,7 +35,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         {children}
-        <Analytics />
       </body>
     </html>
   );
