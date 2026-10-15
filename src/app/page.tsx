@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import Link from "next/link";
 import Yantra from "@/components/Yantra";
 
 const services = [
@@ -297,8 +298,13 @@ export default function Home() {
               © {new Date().getFullYear()} Digital Services
             </span>
           </span>
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#f7eeda]/45">
-            Udyam Registered · India
+          <span className="flex items-center gap-6">
+            <Link href="/privacy" className="text-[#f7eeda]/70 transition-colors hover:text-haldi">
+              Privacy Policy
+            </Link>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#f7eeda]/45">
+              Udyam Registered · India
+            </span>
           </span>
         </div>
       </footer>
