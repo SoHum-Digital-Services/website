@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -31,7 +32,8 @@ export default function Privacy() {
     <div className="flex-1">
       <header className="border-b border-rule">
         <div className="max-w-3xl mx-auto px-6 sm:px-10 h-16 flex items-center">
-          <Link href="/" className="flex items-baseline gap-2">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/sohum-mark.svg" alt="" width={32} height={32} unoptimized className="self-center" />
             <span className="font-display text-2xl leading-none tracking-tight">SoHum</span>
             <span className="h-1.5 w-1.5 rounded-full bg-sindoor" />
           </Link>

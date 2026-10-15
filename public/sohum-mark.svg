@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-labelledby="title desc">
+  <title id="title">SoHum Organization philosophical mark</title>
+  <desc id="desc">A sacred doorway holds a flame above two embracing pages.</desc>
+  <path d="M62 254V143c0-42 23-72 58-93 13-8 24-19 30-30 6 11 17 22 30 30 35 21 58 51 58 93v111"
+        fill="none" stroke="#4C1930" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M150 69c-4 28-30 50-30 81 0 24 12 43 30 54 18-11 30-30 30-54 0-21-13-37-20-50-5-10-8-20-10-31Z"
+        fill="#E9A12B"/>
+  <path d="M153 116c-15 17-14 37 0 46 11 7 13 19 5 31"
+        fill="none" stroke="#8F2E2B" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M86 199c24-8 46-5 64 12v32c-17-14-37-20-61-19l-3-25Z" fill="#4C1930"/>
+  <path d="M214 199c-24-8-46-5-64 12v32c17-14 37-20 61-19l3-25Z" fill="#4C1930"/>
+</svg>
