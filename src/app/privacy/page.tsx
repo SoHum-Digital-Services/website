@@ -62,7 +62,8 @@ export default function Privacy() {
           <p>
             <strong className="text-fg">Your SoHum Account.</strong> When you sign in with Google, we receive your email
             address and the name and profile picture on your Google account. We use them to sign you in and to show you
-            who is signed in.
+            who is signed in. We do not request access to any other data in your Google account, such as Gmail, Drive or
+            contacts.
           </p>
           <p>
             <strong className="text-fg">What you put into an app.</strong> Each app keeps only what it needs to work: for

@@ -40,6 +40,7 @@ const work = [
 const navLinks = [
   ["Services", "#services"],
   ["Work", "#work"],
+  ["Account", "#account"],
   ["About", "#about"],
   ["Contact", "#contact"],
 ];
@@ -207,6 +208,38 @@ export default function Home() {
                   </div>
                 </a>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SoHum Account ───────────────────────────────── */}
+        <section id="account" className="relative border-b border-rule">
+          <div className="max-w-6xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
+            <div className="grid gap-12 sm:grid-cols-[1fr_1.6fr] sm:gap-16">
+              <h2 className="font-display text-4xl sm:text-6xl leading-none">SoHum Account</h2>
+
+              <div className="space-y-6 text-lg leading-relaxed text-fg-2">
+                <p>
+                  SoHum Account is one sign-in for the SoHum apps: ChantTracker
+                  for daily chanting practice, Darshan for temple sevas and
+                  bookings, Vāni, an assistant that answers questions about them
+                  in Telugu and English, GatiVani for news, and the SoHum Store.
+                </p>
+                <p>
+                  You sign in with your Google account. SoHum receives only your
+                  email address, name and profile picture, and uses them only to
+                  sign you in and keep your data in each app private to you. We
+                  never sell your data or use it for advertising.
+                </p>
+                <p>
+                  <Link
+                    href="/privacy"
+                    className="text-sindoor border-b border-sindoor/40 transition-colors hover:border-sindoor"
+                  >
+                    Read the SoHum Privacy Policy
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </section>
