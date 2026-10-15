@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import Image from "next/image";
 import Link from "next/link";
 import Yantra from "@/components/Yantra";
 
@@ -51,7 +52,8 @@ export default function Home() {
       {/* ── Header ─────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 bg-bg/85 backdrop-blur-md border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-baseline gap-2">
+          <a href="#top" className="flex items-center gap-2">
+            <Image src="/sohum-mark.svg" alt="" width={32} height={32} unoptimized className="self-center" />
             <span className="font-display text-2xl leading-none tracking-tight">SoHum</span>
             <span className="h-1.5 w-1.5 rounded-full bg-sindoor" />
           </a>
@@ -216,7 +218,10 @@ export default function Home() {
         <section id="account" className="relative border-b border-rule">
           <div className="max-w-6xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
             <div className="grid gap-12 sm:grid-cols-[1fr_1.6fr] sm:gap-16">
-              <h2 className="font-display text-4xl sm:text-6xl leading-none">SoHum Account</h2>
+              <div>
+                <Image src="/sohum-mark.svg" alt="SoHum logo" width={96} height={96} unoptimized />
+                <h2 className="font-display mt-6 text-4xl sm:text-6xl leading-none">SoHum Account</h2>
+              </div>
 
               <div className="space-y-6 text-lg leading-relaxed text-fg-2">
                 <p>
