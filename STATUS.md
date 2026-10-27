@@ -1,4 +1,4 @@
-# Platform status (website, hosting, identity, placeholders)            updated 2026-10-27 by Desk · Platform
+# Infrastructure status (website, hosting, identity, placeholders)            updated 2026-10-27 by Desk · Infrastructure
 
 Scope: the marketing website `sohum.cc` (this repo), hosting across Google Cloud (`sohum-509918`), Cloudflare, Supabase (`sohum`), Render and Vercel, SoHum identity (`sohum-id-web`), and the Bhakti, Spiritual and Vachini placeholders. All facts below were read on 2026-10-27, read-only; nothing was changed. "Not verified" means exactly that.
 
